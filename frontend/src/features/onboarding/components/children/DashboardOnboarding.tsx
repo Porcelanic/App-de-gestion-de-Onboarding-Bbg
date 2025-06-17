@@ -30,7 +30,6 @@ export const DashboardOnboarding: React.FC<DashboardOnboardingProps> = ({
     const [showErrorModal, setShowErrorModal] = useState(false);
     const [showSuccessModal, setShowSuccessModal] = useState(false);
 
-    // Para saber cuál onboarding se intenta eliminar (opcional)
     const [onboardingToDelete, setOnboardingToDelete] = useState<OnboardingWithEmployees | null>(null);
 
     const filteredOnboardings = useMemo(() => {
@@ -49,7 +48,6 @@ export const DashboardOnboarding: React.FC<DashboardOnboardingProps> = ({
     };
 
     const handleDeleteOnboarding = async (onboarding: OnboardingWithEmployees) => {
-        // Verifica si tiene empleados asociados
         if (onboarding.onboardings.length > 0) {
             setShowErrorModal(true);
             return;

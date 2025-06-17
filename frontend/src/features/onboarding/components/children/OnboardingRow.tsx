@@ -5,7 +5,6 @@ import { formatDate } from "../../../../utils/dateUtils";
 import { EmployeeSubTable } from "./EmployeeSubTable";
 import { deleteOnboarding } from "../../services/onboarding";
 
-// Puedes reemplazar estos modales por tu propio componente de Modal si tienes uno
 const Modal: React.FC<{ open: boolean; onClose: () => void; title: string; children: React.ReactNode }> = ({
   open,
   onClose,

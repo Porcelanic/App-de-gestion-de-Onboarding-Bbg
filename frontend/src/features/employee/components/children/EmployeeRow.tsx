@@ -9,7 +9,7 @@ export interface EmployeeRowProps {
     isExpanded: boolean;
     onToggleOnboardings: (employeeEmail: string) => void;
     onOpenEditModal: (employee: EmployeeWithOnboardings) => void;
-    onDelete: (employee: EmployeeWithOnboardings) => void; // Nuevo prop
+    onDelete: (employee: EmployeeWithOnboardings) => void
 }
 
 export const EmployeeRow: React.FC<EmployeeRowProps> = ({

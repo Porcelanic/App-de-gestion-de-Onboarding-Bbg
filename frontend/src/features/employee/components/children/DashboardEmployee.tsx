@@ -6,7 +6,7 @@ import { Button } from "../../../../shared/components/atoms/Button";
 import { Modal } from "../../../../shared/components/atoms/Modal";
 import { RegisterEmployeeForm } from "./RegisterEmployeeForm";
 import { EditEmployeeForm } from "./EditEmployeeForm";
-import { deleteEmployee } from "../../services/employee"; // Asegúrate de importar esto
+import { deleteEmployee } from "../../services/employee";
 
 interface DashboardEmployeeProps {
     employees: EmployeeWithOnboardings[];
@@ -30,7 +30,6 @@ export const DashboardEmployee: React.FC<DashboardEmployeeProps> = ({
     const [onboardingStatusFilter, setOnboardingStatusFilter] = useState("");
     const [onboardingTypeFilter, setOnboardingTypeFilter] = useState("");
 
-    // Estados para los modals de eliminación
     const [showDeleteErrorModal, setShowDeleteErrorModal] = useState(false);
     const [showDeleteSuccessModal, setShowDeleteSuccessModal] = useState(false);
 
@@ -58,7 +57,6 @@ export const DashboardEmployee: React.FC<DashboardEmployeeProps> = ({
         );
     };
 
-    // Handler para eliminar empleado
     const handleDeleteEmployee = async (employee: EmployeeWithOnboardings) => {
         if (employee.onboardings.length > 0) {
             setShowDeleteErrorModal(true);
