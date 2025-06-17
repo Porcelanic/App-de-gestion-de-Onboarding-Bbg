@@ -60,3 +60,9 @@ export const refreshToken = async () => {
     localStorage.setItem("accessToken", response.data.accessToken);
     return response.data.accessToken;
 };
+
+export const deleteEmployee = async (employeeEmail: string) => {
+    console.log("Deleting employee with email:", employeeEmail);
+    const response = await axios.delete(`${API_BASE_URL}/${employeeEmail}`);
+    return response.data;
+}

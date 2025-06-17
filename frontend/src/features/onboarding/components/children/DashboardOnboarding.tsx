@@ -5,6 +5,7 @@ import { RegisterOnboardingForm } from "./RegisterOnboardingForm";
 import { EditOnboardingForm } from "./EditOnboardingForm";
 import { OnboardingRow } from "./OnboardingRow";
 import { OnboardingWithEmployees } from "../../pages/DashboardOnboardingPage";
+import { deleteOnboarding } from "../../services/onboarding";
 
 interface DashboardOnboardingProps {
     onboardings: OnboardingWithEmployees[];
@@ -26,6 +27,11 @@ export const DashboardOnboarding: React.FC<DashboardOnboardingProps> = ({
         useState<OnboardingWithEmployees | null>(null);
     const [typeFilter, setTypeFilter] = useState("");
 
+    const [showErrorModal, setShowErrorModal] = useState(false);
+    const [showSuccessModal, setShowSuccessModal] = useState(false);
+
+    const [onboardingToDelete, setOnboardingToDelete] = useState<OnboardingWithEmployees | null>(null);
+
     const filteredOnboardings = useMemo(() => {
         if (!typeFilter) return onboardings;
         return onboardings.filter((o) => o.onboardingType.name === typeFilter);
@@ -40,6 +46,25 @@ export const DashboardOnboarding: React.FC<DashboardOnboardingProps> = ({
         setIsEditModalOpen(false);
         setSelectedOnboarding(null);
     };
+
+    const handleDeleteOnboarding = async (onboarding: OnboardingWithEmployees) => {
+        if (onboarding.onboardings.length > 0) {
+            setShowErrorModal(true);
+            return;
+        }
+        try {
+            await deleteOnboarding(onboarding.onboardingId);
+            setShowSuccessModal(true);
+        } catch (error) {
+            setShowErrorModal(true);
+        }
+    };
+
+    const handleSuccessModalClose = () => {
+        setShowSuccessModal(false);
+        onOnboardingChange();
+    };
+
     return (
         <div className="w-full p-4 bg-white dark:bg-gray-800 shadow-md sm:rounded-lg">
             <div className="flex justify-between items-center mb-3">
@@ -128,6 +153,7 @@ export const DashboardOnboarding: React.FC<DashboardOnboardingProps> = ({
                                     }
                                     onOnboardingChange={onOnboardingChange}
                                     onOpenEditModal={handleOpenEditModal}
+                                    onDelete={handleDeleteOnboarding}
                                 />
                             ))
                         )}
@@ -163,6 +189,18 @@ export const DashboardOnboarding: React.FC<DashboardOnboardingProps> = ({
                     />
                 </Modal>
             )}
+            <Modal
+                isOpen={showErrorModal}
+                onClose={() => setShowErrorModal(false)}
+                title="No se puede eliminar"
+                message="No se puede eliminar este onboarding porque tiene empleados asignados o ha ocurrido un error."
+            />
+            <Modal
+                isOpen={showSuccessModal}
+                onClose={handleSuccessModalClose}
+                title="Eliminado correctamente"
+                message="El onboarding ha sido eliminado correctamente."
+            />
         </div>
     );
 };

@@ -33,3 +33,9 @@ export const getOnboardings = async () => {
     const response = await axios.get(`${API_BASE_URL}`);
     return response.data;
 };
+
+export const deleteOnboarding = async (onboardingId: number) => {
+    console.log("Deleting onboarding with ID:", onboardingId);
+    const response = await axios.delete(`${API_BASE_URL}/${onboardingId}`);
+    return response.data;
+}
