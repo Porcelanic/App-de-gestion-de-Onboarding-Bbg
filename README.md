@@ -2,7 +2,7 @@
 
 Esta **Aplicación de Gestión de Onboarding** es una solución web integral diseñada para administrar eficientemente los procesos de incorporación de empleados. Proporciona un entorno moderno y adaptable para el seguimiento de nuevas contrataciones, la asignación de tareas de onboarding y la facilitación de una integración fluida en la organización.
 
-## Puesta en Marcha
+## 1. Puesta en Marcha
 
 Siga estos pasos para configurar y ejecutar la aplicación en su entorno local.
 
@@ -68,3 +68,9 @@ npm test
 ### 7. Acceder a la Aplicación:
 
 Una vez que tanto el backend como el frontend estén en ejecución, abra su navegador web y diríjase a la dirección donde se está ejecutando el frontend (generalmente `http://localhost:5173` o la que indique la salida de `npm run dev` del frontend).
+
+## 2. Previsualizacion
+
+Puedes ver un demo de la aplicacion en el siguiente enlace: https://drive.google.com/file/d/1DGlXQF1CXpP1VFQaTvE2pYIHLixvNeAz/view?usp=sharing
+
+Tambien puedes ver la aplicacion desplegada en este enlace: https://app-de-gestion-de-onboarding-bbg.vercel.app/login
