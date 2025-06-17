@@ -36,6 +36,10 @@ export const OnboardingSubTable: React.FC<OnboardingSubTableProps> = ({
             );
             setIsModalOpen(true);
         } catch (error) {
+            console.error(
+                "Error al marcar el onboarding como completado:",
+                error
+            );
             setModalTitle("Error");
             setModalMessage("No se pudo marcar como completado.");
             setModalIcon(<FaTimesCircle className="w-12 h-12 text-red-600" />);
