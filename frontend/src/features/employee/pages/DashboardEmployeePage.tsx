@@ -153,7 +153,6 @@ export const DashboardEmployeePage: React.FC = () => {
             <DashboardEmployee
                 employees={employees}
                 onEmployeeChange={handleAddEmployee}
-                onDeleteEmployee={handleDeleteEmployee}
                 uniqueOnboardingNames={uniqueOnboardingNames}
                 uniqueOnboardingTypeNames={uniqueOnboardingTypeNames}
             />
