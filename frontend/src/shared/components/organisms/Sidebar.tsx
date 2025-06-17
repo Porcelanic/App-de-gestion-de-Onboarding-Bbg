@@ -1,6 +1,6 @@
 import React from "react";
 import SidebarLink from "../molecules/SidebarLink";
-import { FaRegUser, FaChalkboardTeacher } from "react-icons/fa";
+import { FaRegUser, FaChalkboardTeacher, FaRegCalendarAlt } from "react-icons/fa";
 import { ThemeToggle } from "../atoms/ThemeToggle";
 
 interface SidebarNavItem {
@@ -40,6 +40,14 @@ const Sidebar: React.FC<SidebarProps> = ({
                 "/dashboard/onboarding"
             ),
         },
+        {
+            href: "/calendar",
+            icon: ( 
+                <FaRegCalendarAlt className="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
+            ),
+            text: "Calendario",
+            isActive: window.location.pathname.startsWith("/calendar"),
+        }
     ];
 
     const navItems = customNavItems || defaultNavItems;
