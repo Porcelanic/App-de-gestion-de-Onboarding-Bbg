@@ -1,7 +1,7 @@
 import React from "react";
-import { EmployeeWithOnboardings } from "../../pages/DashboardEmployeePage";
-import { formatDate } from "../../../../utils/dateUtils";
-import { Button } from "../../../../shared/components/atoms/Button";
+import { EmployeeWithOnboardings } from "../pages/DashboardEmployeePage";
+import { formatDate } from "../../../utils/dateUtils";
+import { Button } from "../../../shared/components/atoms/Button";
 
 export interface EmployeeRowProps {
     employee: EmployeeWithOnboardings;

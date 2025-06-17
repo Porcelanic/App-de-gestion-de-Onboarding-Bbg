@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { assignEmployeeToOnboarding } from "../../services/employeeOnboarding";
-import { Button } from "../../../../shared/components/atoms/Button";
-import { Input } from "../../../../shared/components/atoms/Input";
-import { Modal } from "../../../../shared/components/atoms/Modal";
+import { assignEmployeeToOnboarding } from "../services/employeeOnboarding";
+import { Button } from "../../../shared/components/atoms/Button";
+import { Input } from "../../../shared/components/atoms/Input";
+import { Modal } from "../../../shared/components/atoms/Modal";
 import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 
 interface AssignEmployeeToOnboardingFormProps {

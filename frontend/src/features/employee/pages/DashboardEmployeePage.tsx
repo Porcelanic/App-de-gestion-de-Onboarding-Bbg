@@ -3,7 +3,7 @@ import { getEmployees } from "../services/employee";
 import { getEmployeeOnboardings } from "../services/employeeOnboarding";
 import { getOnboardings } from "../../onboarding/services/onboarding";
 import { getOnboardingTypes } from "../../onboarding/services/onboardingType";
-import { DashboardEmployee } from "../components/children/DashboardEmployee";
+import { DashboardEmployee } from "../components/DashboardEmployee";
 import DashboardTemplate from "../../../shared/templates/DashboardTemplate";
 
 export interface OnboardingDetail {

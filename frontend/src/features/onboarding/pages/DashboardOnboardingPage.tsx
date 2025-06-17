@@ -3,7 +3,7 @@ import { getOnboardings } from "../services/onboarding";
 import { getOnboardingTypes } from "../services/onboardingType";
 import { getEmployeeOnboardings } from "../services/employeeOnboarding";
 import DashboardTemplate from "../../../shared/templates/DashboardTemplate";
-import { DashboardOnboarding } from "../components/children/DashboardOnboarding";
+import { DashboardOnboarding } from "../components/DashboardOnboarding";
 
 export interface EmployeeDetail {
     employeeEmail: string;

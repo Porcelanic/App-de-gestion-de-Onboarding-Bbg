@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import { Input } from "../../../../shared/components/atoms/Input";
-import { Button } from "../../../../shared/components/atoms/Button";
-import { register } from "../../services/employee";
+import { Input } from "../../../shared/components/atoms/Input";
+import { Button } from "../../../shared/components/atoms/Button";
+import { register } from "../services/employee";
 import {
   FaUserPlus,
   FaCheckCircle,
@@ -11,8 +11,8 @@ import {
   FaEye,
   FaEyeSlash,
 } from "react-icons/fa";
-import { Modal } from "../../../../shared/components/atoms/Modal";
-import { RegisterEmployeeData } from "../../types/RegisterEmployeeData";
+import { Modal } from "../../../shared/components/atoms/Modal";
+import { RegisterEmployeeData } from "../types/RegisterEmployeeData";
 
 const validationSchema = yup.object({
   name: yup

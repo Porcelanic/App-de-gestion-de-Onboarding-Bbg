@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { OnboardingWithEmployees } from "../../pages/DashboardOnboardingPage";
-import { Button } from "../../../../shared/components/atoms/Button";
-import { formatDate } from "../../../../utils/dateUtils";
+import { OnboardingWithEmployees } from "../pages/DashboardOnboardingPage";
+import { Button } from "../../../shared/components/atoms/Button";
+import { formatDate } from "../../../utils/dateUtils";
 import { EmployeeSubTable } from "./EmployeeSubTable";
-import { deleteOnboarding } from "../../services/onboarding";
+import { deleteOnboarding } from "../services/onboarding";
 
 const Modal: React.FC<{ open: boolean; onClose: () => void; title: string; children: React.ReactNode }> = ({
   open,

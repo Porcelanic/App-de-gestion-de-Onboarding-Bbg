@@ -8,7 +8,6 @@ router.get("/", authMiddleware, roleController.getRoles.bind(roleController));
 
 router.post(
     "/",
-    authMiddleware,
     roleController.createRole.bind(roleController)
 );
 

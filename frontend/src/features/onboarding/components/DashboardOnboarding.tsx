@@ -1,11 +1,11 @@
 import React, { useState, useMemo } from "react";
-import { Button } from "../../../../shared/components/atoms/Button";
-import { Modal } from "../../../../shared/components/atoms/Modal";
+import { Button } from "../../../shared/components/atoms/Button";
+import { Modal } from "../../../shared/components/atoms/Modal";
 import { RegisterOnboardingForm } from "./RegisterOnboardingForm";
 import { EditOnboardingForm } from "./EditOnboardingForm";
 import { OnboardingRow } from "./OnboardingRow";
-import { OnboardingWithEmployees } from "../../pages/DashboardOnboardingPage";
-import { deleteOnboarding } from "../../services/onboarding";
+import { OnboardingWithEmployees } from "../pages/DashboardOnboardingPage";
+import { deleteOnboarding } from "../services/onboarding";
 
 interface DashboardOnboardingProps {
     onboardings: OnboardingWithEmployees[];

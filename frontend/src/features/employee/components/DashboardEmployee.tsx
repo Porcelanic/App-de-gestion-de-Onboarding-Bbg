@@ -1,12 +1,12 @@
 import React, { useState, useMemo } from "react";
-import { EmployeeWithOnboardings } from "../../pages/DashboardEmployeePage";
+import { EmployeeWithOnboardings } from "../pages/DashboardEmployeePage";
 import { EmployeeRow } from "./EmployeeRow";
 import { OnboardingSubTable } from "./OnboardingSubTable";
-import { Button } from "../../../../shared/components/atoms/Button";
-import { Modal } from "../../../../shared/components/atoms/Modal";
+import { Button } from "../../../shared/components/atoms/Button";
+import { Modal } from "../../../shared/components/atoms/Modal";
 import { RegisterEmployeeForm } from "./RegisterEmployeeForm";
 import { EditEmployeeForm } from "./EditEmployeeForm";
-import { deleteEmployee } from "../../services/employee";
+import { deleteEmployee } from "../services/employee";
 
 interface DashboardEmployeeProps {
     employees: EmployeeWithOnboardings[];

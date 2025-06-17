@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import { Input } from "../../../../shared/components/atoms/Input";
-import { Button } from "../../../../shared/components/atoms/Button";
-import { updateEmployee } from "../../services/employee";
+import { Input } from "../../../shared/components/atoms/Input";
+import { Button } from "../../../shared/components/atoms/Button";
+import { updateEmployee } from "../services/employee";
 import {
     FaSave,
     FaCheckCircle,
@@ -11,10 +11,10 @@ import {
     FaEye,
     FaEyeSlash,
 } from "react-icons/fa";
-import { Modal } from "../../../../shared/components/atoms/Modal";
-import { EmployeeWithOnboardings } from "../../pages/DashboardEmployeePage";
-import { formatDateForInput } from "../../../../utils/dateUtils";
-import { UpdateEmployeeData } from "../../types/UpdateEmployeeData";
+import { Modal } from "../../../shared/components/atoms/Modal";
+import { EmployeeWithOnboardings } from "../pages/DashboardEmployeePage";
+import { formatDateForInput } from "../../../utils/dateUtils";
+import { UpdateEmployeeData } from "../types/UpdateEmployeeData";
 
 export interface EditEmployeeFormValues {
     name: string;

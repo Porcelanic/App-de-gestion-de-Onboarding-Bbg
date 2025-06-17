@@ -1,5 +1,5 @@
 import React from "react";
-import { RegisterForm } from "../components/children/RegisterForm";
+import { RegisterForm } from "../components/RegisterForm";
 import { StandaloneFormTemplate } from "../../../shared/templates/StandaloneFormTemplate";
 
 export const RegisterPage: React.FC = () => (

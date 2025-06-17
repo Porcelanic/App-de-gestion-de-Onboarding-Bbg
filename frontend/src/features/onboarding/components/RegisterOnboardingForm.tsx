@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import * as yup from "yup";
 import { useFormik } from "formik";
-import { createOnboarding } from "../../services/onboarding";
-import { getOnboardingTypes } from "../../services/onboardingType";
+import { createOnboarding } from "../services/onboarding";
+import { getOnboardingTypes } from "../services/onboardingType";
 import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
-import { Button } from "../../../../shared/components/atoms/Button";
-import { Input } from "../../../../shared/components/atoms/Input";
-import { Select } from "../../../../shared/components/atoms/Select";
-import { Modal } from "../../../../shared/components/atoms/Modal";
-import { OnboardingWithEmployees } from "../../pages/DashboardOnboardingPage";
+import { Button } from "../../../shared/components/atoms/Button";
+import { Input } from "../../../shared/components/atoms/Input";
+import { Select } from "../../../shared/components/atoms/Select";
+import { Modal } from "../../../shared/components/atoms/Modal";
+import { OnboardingWithEmployees } from "../pages/DashboardOnboardingPage";
 
 interface RegisterOnboardingFormProps {
     onRegistered: () => void;

@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import {
     EmployeeWithOnboardings,
     EmployeeOnboarding,
-} from "../../pages/DashboardEmployeePage";
-import { formatDate } from "../../../../utils/dateUtils";
-import { updateEmployeeOnboarding } from "../../services/employeeOnboarding";
-import { Modal } from "../../../../shared/components/atoms/Modal";
+} from "../pages/DashboardEmployeePage";
+import { formatDate } from "../../../utils/dateUtils";
+import { updateEmployeeOnboarding } from "../services/employeeOnboarding";
+import { Modal } from "../../../shared/components/atoms/Modal";
 import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 
 export interface OnboardingSubTableProps {

@@ -1,7 +1,7 @@
 import request from "supertest";
 import { AppDataSource } from "../config/ormconfig";
-import { Employee } from "../entities/Employee";
-import { Role } from "../entities/Role";
+import { Employee } from "../entities/employee/Employee";
+import { Role } from "../entities/employee/Role";
 import { app } from "../app";
 
 interface TestEmployeeData {

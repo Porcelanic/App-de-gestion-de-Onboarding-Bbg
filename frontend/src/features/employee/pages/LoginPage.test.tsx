@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { LoginPage } from "./LoginPage";
 import { StandaloneFormTemplate } from "../../../shared/templates/StandaloneFormTemplate";
-import { LoginForm } from "../components/children/LoginForm";
+import { LoginForm } from "../components/LoginForm";
 
 jest.mock("../../../shared/templates/StandaloneFormTemplate", () => ({
     StandaloneFormTemplate: jest.fn(
@@ -17,7 +17,7 @@ jest.mock("../../../shared/templates/StandaloneFormTemplate", () => ({
     ),
 }));
 
-jest.mock("../components/children/LoginForm", () => ({
+jest.mock("../components/LoginForm", () => ({
     LoginForm: jest.fn(() => <div data-testid="login-form">LoginForm</div>),
 }));
 
