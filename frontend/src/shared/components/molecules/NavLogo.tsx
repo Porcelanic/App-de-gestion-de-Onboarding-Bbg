@@ -32,7 +32,7 @@ const NavLogo: React.FC<NavLogoProps> = ({
 
             <a href={logoHref} className="flex ms-2 md:me-24 items-center">
                 <img
-                    src="../../../../logo.svg"
+                    src="https://www.servicer.com.co/clients/banco-bogota.png"
                     alt="Logo"
                     className="h-8 w-8 me-3"
                 />
