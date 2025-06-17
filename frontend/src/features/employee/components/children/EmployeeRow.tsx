@@ -9,6 +9,7 @@ export interface EmployeeRowProps {
     isExpanded: boolean;
     onToggleOnboardings: (employeeEmail: string) => void;
     onOpenEditModal: (employee: EmployeeWithOnboardings) => void;
+    onDelete: (employee: EmployeeWithOnboardings) => void; // Nuevo prop
 }
 
 export const EmployeeRow: React.FC<EmployeeRowProps> = ({
@@ -17,6 +18,7 @@ export const EmployeeRow: React.FC<EmployeeRowProps> = ({
     isExpanded,
     onToggleOnboardings,
     onOpenEditModal,
+    onDelete,
 }) => (
     <tr
         className={`${
@@ -37,6 +39,9 @@ export const EmployeeRow: React.FC<EmployeeRowProps> = ({
         <td className="px-6 py-4 flex gap-2 justify-center">
             <Button onClick={() => onOpenEditModal(employee)}>
                 Editar empleado
+            </Button>
+            <Button onClick={() => onDelete(employee)}>
+                Eliminar
             </Button>
             <Button onClick={() => onToggleOnboardings(employee.employeeEmail)}>
                 {isExpanded ? "Ocultar onboardings" : "Ver onboardings"}

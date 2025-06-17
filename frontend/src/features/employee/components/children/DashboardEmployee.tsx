@@ -6,11 +6,11 @@ import { Button } from "../../../../shared/components/atoms/Button";
 import { Modal } from "../../../../shared/components/atoms/Modal";
 import { RegisterEmployeeForm } from "./RegisterEmployeeForm";
 import { EditEmployeeForm } from "./EditEmployeeForm";
+import { deleteEmployee } from "../../services/employee"; // Asegúrate de importar esto
 
 interface DashboardEmployeeProps {
     employees: EmployeeWithOnboardings[];
     onEmployeeChange: () => void;
-    onDeleteEmployee: () => void;
     uniqueOnboardingNames: string[];
     uniqueOnboardingTypeNames: string[];
 }
@@ -18,36 +18,26 @@ interface DashboardEmployeeProps {
 export const DashboardEmployee: React.FC<DashboardEmployeeProps> = ({
     employees,
     onEmployeeChange,
-
     uniqueOnboardingNames,
     uniqueOnboardingTypeNames,
 }) => {
-    const [expandedEmployeeEmail, setExpandedEmployeeEmail] = useState<
-        string | null
-    >(null);
-
-    const [isRegisterEmployeeModalOpen, setIsRegisterEmployeeModalOpen] =
-        useState(false);
-    const [isEditEmployeeModalOpen, setIsEditEmployeeModalOpen] =
-        useState(false);
-    const [selectedEmployeeForEdit, setSelectedEmployeeForEdit] =
-        useState<EmployeeWithOnboardings | null>(null);
+    const [expandedEmployeeEmail, setExpandedEmployeeEmail] = useState<string | null>(null);
+    const [isRegisterEmployeeModalOpen, setIsRegisterEmployeeModalOpen] = useState(false);
+    const [isEditEmployeeModalOpen, setIsEditEmployeeModalOpen] = useState(false);
+    const [selectedEmployeeForEdit, setSelectedEmployeeForEdit] = useState<EmployeeWithOnboardings | null>(null);
 
     const [onboardingNameFilter, setOnboardingNameFilter] = useState("");
     const [onboardingStatusFilter, setOnboardingStatusFilter] = useState("");
     const [onboardingTypeFilter, setOnboardingTypeFilter] = useState("");
 
-    const handleOpenRegisterEmployeeModal = () => {
-        setIsRegisterEmployeeModalOpen(true);
-    };
+    // Estados para los modals de eliminación
+    const [showDeleteErrorModal, setShowDeleteErrorModal] = useState(false);
+    const [showDeleteSuccessModal, setShowDeleteSuccessModal] = useState(false);
 
-    const handleCloseRegisterEmployeeModal = () => {
-        setIsRegisterEmployeeModalOpen(false);
-    };
+    const handleOpenRegisterEmployeeModal = () => setIsRegisterEmployeeModalOpen(true);
+    const handleCloseRegisterEmployeeModal = () => setIsRegisterEmployeeModalOpen(false);
 
-    const handleOpenEditEmployeeModal = (
-        employeeToEdit: EmployeeWithOnboardings
-    ) => {
+    const handleOpenEditEmployeeModal = (employeeToEdit: EmployeeWithOnboardings) => {
         setSelectedEmployeeForEdit(employeeToEdit);
         setIsEditEmployeeModalOpen(true);
     };
@@ -66,6 +56,25 @@ export const DashboardEmployee: React.FC<DashboardEmployeeProps> = ({
         setExpandedEmployeeEmail((prevEmail) =>
             prevEmail === employeeEmail ? null : employeeEmail
         );
+    };
+
+    // Handler para eliminar empleado
+    const handleDeleteEmployee = async (employee: EmployeeWithOnboardings) => {
+        if (employee.onboardings.length > 0) {
+            setShowDeleteErrorModal(true);
+            return;
+        }
+        try {
+            await deleteEmployee(employee.employeeEmail);
+            setShowDeleteSuccessModal(true);
+        } catch (error) {
+            setShowDeleteErrorModal(true);
+        }
+    };
+
+    const handleDeleteSuccessModalClose = () => {
+        setShowDeleteSuccessModal(false);
+        onEmployeeChange();
     };
 
     const filteredEmployees = useMemo(() => {
@@ -258,6 +267,7 @@ export const DashboardEmployee: React.FC<DashboardEmployeeProps> = ({
                                         onOpenEditModal={
                                             handleOpenEditEmployeeModal
                                         }
+                                        onDelete={handleDeleteEmployee}
                                     />
                                     {expandedEmployeeEmail ===
                                         employee.employeeEmail && (
@@ -295,6 +305,19 @@ export const DashboardEmployee: React.FC<DashboardEmployeeProps> = ({
                     />
                 </Modal>
             )}
+
+            <Modal
+                isOpen={showDeleteErrorModal}
+                onClose={() => setShowDeleteErrorModal(false)}
+                title="No se puede eliminar"
+                message="No se puede eliminar este empleado porque tiene onboardings asignados o ha ocurrido un error."
+            />
+            <Modal
+                isOpen={showDeleteSuccessModal}
+                onClose={handleDeleteSuccessModalClose}
+                title="Eliminado correctamente"
+                message="El empleado ha sido eliminado correctamente."
+            />
         </div>
     );
 };
