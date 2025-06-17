@@ -1,10 +1,9 @@
 import { Router } from "express";
-import { employeeOnboardingController } from "../modules/employeeOnboarding/employeeOnboarding/controllers/employeeOnboarding.controller.index";
+import { employeeOnboardingController } from "../modules/employeeOnboarding/controllers/employeeOnboarding.controller.index";
 import { authMiddleware } from "../config/middleware/authMiddleware";
 
 const router = Router();
 
-// Apply authMiddleware to all routes in this router
 router.use(authMiddleware);
 
 // Assign an employee to an onboarding process

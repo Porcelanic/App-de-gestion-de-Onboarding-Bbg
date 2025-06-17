@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { onboardingTypeController } from "../modules/employeeOnboarding/onboarding/onboardingType/controllers/onboardingtype.controller.index";
+import { onboardingTypeController } from "../modules/onboarding/onboardingType/controllers/onboardingtype.controller.index";
 import { authMiddleware } from "../config/middleware/authMiddleware";
 
 const router = Router();

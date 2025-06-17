@@ -1,9 +1,9 @@
 import { DataSource } from "typeorm";
-import { Employee } from "../entities/Employee";
-import { Role } from "../entities/Role";
-import { Onboarding } from "../entities/Onboarding";
-import { OnboardingType } from "../entities/OnboardingType";
-import { EmployeeOnboarding } from "../entities/EmployeeOnboarding";
+import { Employee } from "../entities/employee/Employee";
+import { Role } from "../entities/employee/Role";
+import { Onboarding } from "../entities/onboarding/Onboarding";
+import { OnboardingType } from "../entities/onboarding/OnboardingType";
+import { EmployeeOnboarding } from "../entities/employeeOnboarding/EmployeeOnboarding";
 import dotenv from "dotenv";
 
 dotenv.config();

@@ -1,6 +1,6 @@
 import express from "express";
 import { authMiddleware } from "../config/middleware/authMiddleware";
-import { employeeController } from "../modules/employeeOnboarding/employee/employee/controllers/employee.controller.index";
+import { employeeController } from "../modules/employee/employee/controllers/employee.controller.index";
 
 const router = express.Router();
 
